@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тайна цифр | Нумерология</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Montserrat', sans-serif;
+background:linear-gradient(180deg,#ffdbe7 0%, #f4f4f4 55%, #111111 100%);
+color:#222;
+min-height:100vh;
+padding:20px;
+display:flex;
+justify-content:center;
+}
+
+.container{
+width:100%;
+max-width:480px;
+background:rgba(255,255,255,0.88);
+backdrop-filter:blur(10px);
+border-radius:30px;
+padding:32px 24px;
+box-shadow:0 15px 40px rgba(0,0,0,0.12);
+}
+
+.header{
+text-align:center;
+margin-bottom:35px;
+}
+
+.badge{
+display:inline-block;
+padding:8px 16px;
+background:#111;
+color:#fff;
+border-radius:30px;
+font-size:12px;
+letter-spacing:1px;
+margin-bottom:18px;
+}
+
+h1{
+font-family:'Cormorant Garamond', serif;
+font-size:42px;
+font-weight:700;
+margin-bottom:10px;
+color:#111;
+}
+
+.channel{
+font-size:15px;
+color:#666;
+margin-bottom:16px;
+}
+
+.slogan{
+font-size:20px;
+font-weight:500;
+color:#ff4f8b;
+}
+
+.card{
+background:#fff;
+border-radius:24px;
+padding:24px;
+margin-top:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.07);
+}
+
+.card h2{
+font-family:'Cormorant Garamond', serif;
+font-size:34px;
+margin-bottom:15px;
+text-align:center;
+}
+
+.description{
+text-align:center;
+font-size:15px;
+line-height:1.7;
+color:#555;
+margin-bottom:25px;
+}
+
+.info-box{
+background:#fff5f8;
+border-radius:18px;
+padding:16px;
+font-size:13px;
+line-height:1.7;
+color:#555;
+margin-bottom:22px;
+}
+
+label{
+display:block;
+margin-bottom:10px;
+font-weight:600;
+font-size:14px;
+}
+
+input{
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:#f3f3f3;
+font-size:16px;
+margin-bottom:18px;
+outline:none;
+}
+
+button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+background:linear-gradient(90deg,#ff6fa3,#ff92b9);
+color:#fff;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.result{
+margin-top:25px;
+padding:22px;
+border-radius:20px;
+background:#fff4f8;
+display:none;
+}
+
+.result h3{
+font-size:28px;
+font-family:'Cormorant Garamond', serif;
+margin-bottom:12px;
+color:#111;
+}
+
+.result p{
+line-height:1.8;
+color:#444;
+font-size:15px;
+}
+
+.telegram{
+display:block;
+text-align:center;
+margin-top:30px;
+text-decoration:none;
+background:#111;
+color:#fff;
+padding:18px;
+border-radius:18px;
+font-weight:600;
+}
+
+footer{
+text-align:center;
+margin-top:35px;
+font-size:13px;
+color:#777;
+line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<div class="badge">НУМЕРОЛОГИЯ • МАТРИЦА СУДЬБЫ</div>
+
+<h1>Вика</h1>
+
+<div class="channel">
+Тайна цифр | Нумерология
+</div>
+
+<div class="slogan">
+«Твоё время — сейчас!»
+</div>
+</div>
+
+<div class="card">
+
+<h2>Ваш жизненный цикл на 2026 год</h2>
+
+<div class="description">
+Введите дату рождения и узнайте, какой период жизни вы проживаете в 2026 году ✨
+</div>
+
+<div class="info-box">
+Формула расчёта:<br>
+день рождения + месяц рождения + энергия 2026 года (1)
+</div>
+
+<label>Дата рождения</label>
+<input type="date" id="birthDate">
+
+<button onclick="calculateCycle()">
+Рассчитать цикл
+</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<a class="telegram" href="https://t.me/vira_numerolog" target="_blank">
+Записаться к Вике
+</a>
+
+<footer>
+Вика • Тайна цифр | Нумерология<br>
+Интерактивный инструмент для женщин ✨
+</footer>
+
+</div>
+
+<script>
+
+function reduceToSingleDigit(number){
+while(number > 9){
+number = number
+.toString()
+.split('')
+.reduce((sum, digit) => sum + parseInt(digit), 0);
+}
+return number;
+}
+
+function calculateCycle(){
+
+const birthDate = document.getElementById('birthDate').value;
+const result = document.getElementById('result');
+
+if(!birthDate){
+alert('Пожалуйста, введите дату рождения');
+return;
+}
+
+const date = new Date(birthDate);
+
+const day = date.getDate();
+const month = date.getMonth() + 1;
+
+let cycle = day + month + 1;
+
+cycle = reduceToSingleDigit(cycle);
+
+const meanings = {
+1: {
+title: "1 цикл — новое начало",
+text: "Время начинать новый этап жизни. Сейчас важно закладывать фундамент, ставить цели и смело идти вперёд."
+},
+2: {
+title: "2 цикл — отношения и встречи",
+text: "Год про судьбоносные знакомства, коммуникации и эмоции. Учитесь слышать себя и не растворяться в других."
+},
+3: {
+title: "3 цикл — творчество и проявленность",
+text: "Период обучения, вдохновения и раскрытия талантов. Мир хочет увидеть вас настоящую."
+},
+4: {
+title: "4 цикл — фундамент и дисциплина",
+text: "Сейчас важно выстраивать стабильность: работа, планы, режим, финансы и внутренняя опора."
+},
+5: {
+title: "5 цикл — перемены и достаток",
+text: "Год путешествий, расширения, переездов и новых возможностей. Вы начинаете получать плоды своих трудов."
+},
+6: {
+title: "6 цикл — любовь и семья",
+text: "На первый план выходят отношения, домашний уют, любовь к себе, тема семьи, брака и заботы о близких."
+},
+7: {
+title: "7 цикл — переосмысление жизни",
+text: "Время глубоко посмотреть внутрь себя. Жизнь подталкивает к осознаниям и внутренним переменам."
+},
+8: {
+title: "8 цикл — проверки и стойкость",
+text: "Год важных решений, документов, покупок и проверок на прочность. Учитесь сохранять внутреннюю силу."
+},
+9: {
+title: "9 цикл — завершение и очищение",
+text: "Старое постепенно уходит из вашей жизни. Это период очищения, отпускания и подготовки к новому этапу."
+}
+};
+
+result.style.display = 'block';
+
+result.innerHTML = `
+<h3>${meanings[cycle].title}</h3>
+<p>${meanings[cycle].text}</p>
+`;
+
+}
+</script>
+
+</body>
+</html>
